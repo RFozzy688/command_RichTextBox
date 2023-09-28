@@ -7,8 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.CommandBindings>
-        <CommandBinding Command="local:ColorCommands.Clear" Executed="Clear_Executed"/>
+        <CommandBinding Command="local:MyCommands.Clear" Executed="Clear_Executed"/>
+        <CommandBinding Command="local:MyCommands.Font15" Executed="Font15_Executed"/>
+        <CommandBinding Command="local:MyCommands.Font30" Executed="Font30_Executed"/>
+        <CommandBinding Command="local:MyCommands.Red" Executed="Red_Executed"/>
+        <CommandBinding Command="local:MyCommands.Green" Executed="Green_Executed"/>
+        <CommandBinding Command="local:MyCommands.Blue" Executed="Blue_Executed"/>
     </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="local:MyCommands.Clear" Gesture="Ctrl+Shift+M"/>
+        <KeyBinding Command="local:MyCommands.Font15" Key="F1"/>
+        <KeyBinding Command="local:MyCommands.Font30" Key="F2"/>
+        <KeyBinding Command="local:MyCommands.Red" Gesture="Ctrl+Shift+D"/>
+        <KeyBinding Command="local:MyCommands.Green" Gesture="Ctrl+Shift+G"/>
+        <KeyBinding Command="local:MyCommands.Blue" Gesture="Ctrl+Shift+B"/>
+    </Window.InputBindings>
     <Grid>
         <Menu Height="20" VerticalAlignment="Top">
             <MenuItem Header="Edit">
@@ -19,7 +32,21 @@
                 <MenuItem Header="Underline"
                           Command="ToggleUnderline" CommandTarget="{Binding ElementName=TextBox}"></MenuItem>
                 <MenuItem Header="Clear"
-          Command="Clear" CommandTarget="{Binding ElementName=TextBox}"></MenuItem>
+                          Command="local:MyCommands.Clear" CommandTarget="{Binding ElementName=TextBox}"></MenuItem>
+                <MenuItem Header="Font size">
+                    <MenuItem Header="Font15"
+                              Command="local:MyCommands.Font15" CommandTarget="{Binding ElementName=TextBox}"></MenuItem>
+                    <MenuItem Header="Font30"
+                              Command="local:MyCommands.Font30" CommandTarget="{Binding ElementName=TextBox}"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Font color">
+                    <MenuItem Header="Red"
+                          Command="local:MyCommands.Red" CommandTarget="{Binding ElementName=TextBox}"></MenuItem>
+                    <MenuItem Header="Green"
+                          Command="local:MyCommands.Green" CommandTarget="{Binding ElementName=TextBox}"></MenuItem>
+                    <MenuItem Header="Blue"
+                          Command="local:MyCommands.Blue" CommandTarget="{Binding ElementName=TextBox}"></MenuItem>
+                </MenuItem>
             </MenuItem>
         </Menu>
         <RichTextBox Name="TextBox"  Margin="0,20,0,0"></RichTextBox>

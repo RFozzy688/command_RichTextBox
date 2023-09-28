@@ -28,13 +28,43 @@ namespace command_RichTextBox
         {
             TextBox.Document.Blocks.Clear();
         }
-    }
-    public class ColorCommands
-    {
-        static ColorCommands()
+        private void Font15_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            Clear = new RoutedCommand("Clear", typeof(ColorCommands));
+            TextBox.FontSize = 15;
         }
+        private void Font30_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            TextBox.FontSize = 30;
+        }
+        private void Red_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            TextBox.Foreground = Brushes.Red;
+        }
+        private void Green_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            TextBox.Foreground = Brushes.Green;
+        }
+        private void Blue_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            TextBox.Foreground = Brushes.Blue;
+        }
+    }
+    public class MyCommands
+    {
         public static RoutedCommand Clear { get; set; }
+        public static RoutedCommand Font15 { get; set; }
+        public static RoutedCommand Font30 { get; set; }
+        public static RoutedCommand Red { get; set; }
+        public static RoutedCommand Green { get; set; }
+        public static RoutedCommand Blue { get; set; }
+        static MyCommands()
+        {
+            Clear = new RoutedCommand("Clear", typeof(MyCommands));
+            Font15 = new RoutedCommand("Font15", typeof(MyCommands));
+            Font30 = new RoutedCommand("Font30", typeof(MyCommands));
+            Red = new RoutedCommand("Red", typeof(MyCommands));
+            Green = new RoutedCommand("Green", typeof(MyCommands));
+            Blue = new RoutedCommand("Blue", typeof(MyCommands));
+        }
     }
 }
